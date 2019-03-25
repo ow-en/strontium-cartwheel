@@ -2,6 +2,8 @@ import { Box, Button, Image, Markdown, Text } from "grommet"
 import { Github, Reddit, Twitter } from "grommet-icons"
 import * as React from "react"
 
+import siteConfig from "../../site-config"
+
 export default () => (
   <div>
     <Box
@@ -19,28 +21,51 @@ export default () => (
           height="xsmall"
           width="xsmall"
           overflow="hidden"
-        />
+        >
+          <Image
+            fit="cover"
+            title={siteConfig.author}
+            alt={siteConfig.author}
+            src={siteConfig.authorImage}
+          />
+        </Box>
         <Box>
           <Text weight="bold" size="large" color="text">
-            Author
+            {siteConfig.author}
           </Text>
         </Box>
       </Box>
       <Box direction="row" wrap={true}>
-        <Button
-          href={`https://twitter.com/`}
-          icon={<Twitter size="medium" />}
-        />
-        <Button href={`https://github.com/`} icon={<Github size="medium" />} />
+        {siteConfig.social.twitter ? (
+          <Button
+            href={`https://twitter.com/${siteConfig.social.twitter}`}
+            icon={<Twitter size="medium" />}
+          />
+        ) : (
+          ""
+        )}
 
-        <Button
-          href={`https://reddit.com/user/`}
-          icon={<Reddit size="medium" />}
-        />
+        {siteConfig.social.github ? (
+          <Button
+            href={`https://github.com/${siteConfig.social.github}`}
+            icon={<Github size="medium" />}
+          />
+        ) : (
+          ""
+        )}
+
+        {siteConfig.social.reddit ? (
+          <Button
+            href={`https://reddit.com/user/${siteConfig.social.reddit}`}
+            icon={<Reddit size="medium" />}
+          />
+        ) : (
+          ""
+        )}
       </Box>
       <Box overflow="hidden">
         <Text size="small" color="text">
-          <Markdown>Author Bio</Markdown>
+          <Markdown>{siteConfig.authorBio}</Markdown>
         </Text>
       </Box>
     </Box>

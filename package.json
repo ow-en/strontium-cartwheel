@@ -38,6 +38,8 @@
     "gatsby-transformer-sharp": "^2.1.17",
     "grommet": "^2.6.5",
     "grommet-icons": "^4.2.0",
+    "grommet-theme-aruba": "^0.1.2",
+    "grommet-theme-dxc": "^0.1.2",
     "lodash": "^4.17.11",
     "markdown-to-jsx": "^6.9.3",
     "polished": "^3.1.0",

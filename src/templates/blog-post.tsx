@@ -1,6 +1,6 @@
 import { navigate, graphql } from "gatsby"
 import { Box, Button, Heading, Image, Text } from "grommet"
-import { Next as NextIcon, Previous as PreviousIcon, Next } from "grommet-icons"
+import { Next as NextIcon, Previous as PreviousIcon } from "grommet-icons"
 import * as _ from "lodash/fp"
 import * as React from "react"
 import Helmet from "react-helmet"

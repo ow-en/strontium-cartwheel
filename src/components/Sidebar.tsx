@@ -6,10 +6,15 @@ export default function Sidebar(props) {
   return (
     <div>
       <CardProfile />
-      <>
-        <LightSwitch onClick={props.themeSwitch} themeType={props.themeType} />
-      </>
-      <></>
+      {props.siteConfig.darkTheme && props.siteConfig.darkTheme !== "" ? (
+        <>
+          <LightSwitch
+            onClick={props.themeSwitch}
+            themeType={props.themeType}
+          />
+        </>
+      ) : (
+        <></>
       )}
     </div>
   )

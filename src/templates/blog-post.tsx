@@ -13,6 +13,9 @@ interface BlogPostProps {
       excerpt: string
       frontmatter: {
         title: string
+        slug: string
+        excerpt?: string
+        tags?: []
         cover?: {
           childImageSharp: { fluid: { src: string } }
         }
@@ -121,7 +124,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        excerpt
+        slug
+        date(formatString: "MMM DD, YYYY")
+        tags
         cover {
           childImageSharp {
             fluid(maxWidth: 1024) {

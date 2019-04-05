@@ -1,20 +1,20 @@
-import { Box, Grommet } from "grommet"
-import { Grommet as GrommetIcon } from "grommet-icons"
-import { base, dark, grommet } from "grommet/themes"
-import { dxc } from "grommet-theme-dxc"
-import { aruba } from "grommet-theme-aruba"
-import React from "react"
-import { createGlobalStyle } from "styled-components"
-import { connect } from "react-redux"
-import { StickyContainer, Sticky } from "react-sticky"
+import { Box, Grommet } from 'grommet';
+import { Grommet as GrommetIcon } from 'grommet-icons';
+import { base, dark, grommet } from 'grommet/themes';
+import { dxc } from 'grommet-theme-dxc';
+import { aruba } from 'grommet-theme-aruba';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { connect } from 'react-redux';
+import { StickyContainer, Sticky } from 'react-sticky';
 
-import siteConfig from "../../site-config"
+import siteConfig from '../../site-config';
 
-import siteTheme from "../site-theme"
+import siteTheme from '../site-theme';
 
-import SiteFooter from "./SiteFooter"
-import SiteHeader from "./SiteHeader"
-import Sidebar from "./Sidebar"
+import SiteFooter from './SiteFooter';
+import SiteHeader from './SiteHeader';
+import Sidebar from './Sidebar';
 
 const GlobalStyle = createGlobalStyle`
   img {
@@ -26,27 +26,27 @@ const GlobalStyle = createGlobalStyle`
   a:hover {
     opacity: 0.9;
   }
-`
+`;
 
 const THEMES = {
   grommet,
   base,
   dark,
   dxc,
-  aruba,
-}
+  aruba
+};
 
 function themeByThemeType(themeType?: string): string {
   if (themeType) {
-    if (themeType === "dark" && siteConfig.darkTheme) {
-      return siteConfig.darkTheme
-    } else if (themeType === "light" && siteConfig.lightTheme) {
-      return siteConfig.lightTheme
+    if (themeType === 'dark' && siteConfig.darkTheme) {
+      return siteConfig.darkTheme;
+    } else if (themeType === 'light' && siteConfig.lightTheme) {
+      return siteConfig.lightTheme;
     } else {
-      return "grommet"
+      return 'grommet';
     }
   } else {
-    return "grommet"
+    return 'grommet';
   }
 }
 
@@ -84,21 +84,21 @@ const Theme = ({ children, themeType, themeSwitch }) => (
       <SiteFooter />
     </Grommet>
   </Grommet>
-)
+);
 
 const mapStateToProps = ({ themeType }) => {
-  return { themeType }
-}
+  return { themeType };
+};
 
 const mapDispatchToProps = (dispatch) => {
-  return { themeSwitch: () => dispatch({ type: `CHANGE_THEME` }) }
-}
+  return { themeSwitch: () => dispatch({ type: `CHANGE_THEME` }) };
+};
 
 const ConnectedTheme = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Theme)
+)(Theme);
 
 export default function Layout({ children }) {
-  return <ConnectedTheme>{children}</ConnectedTheme>
+  return <ConnectedTheme>{children}</ConnectedTheme>;
 }

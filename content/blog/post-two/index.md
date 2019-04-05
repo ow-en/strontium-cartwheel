@@ -1,7 +1,7 @@
 ---
-title: Hello World
+title: Hello World Two
 date: '2015-05-01T22:12:03.284Z'
-slug: 'first-post'
+slug: 'second-post'
 excerpt: 'This is a test post.'
 tags: ['react', 'gatsby']
 cover: './building.jpg'

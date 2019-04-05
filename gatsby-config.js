@@ -1,8 +1,11 @@
+const queries = require("./src/utils/algolia")
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby + Grommet + Algolia`,
+    description: `Some test description`,
+    author: `Owen Caulfield`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -36,6 +39,15 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: `gatsby-plugin-algolia`,
+            options: {
+              appId: process.env.GATSBY_ALGOLIA_APP_ID,
+              apiKey: process.env.ALGOLIA_ADMIN_KEY,
+              queries,
+              chunkSize: 10000, // default: 1000
+            },
+          },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
         ],
@@ -43,7 +55,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
